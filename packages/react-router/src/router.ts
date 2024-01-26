@@ -362,8 +362,10 @@ export class Router<
 
     const notFoundRoute = this.options.notFoundRoute
     if (notFoundRoute) {
-      notFoundRoute.init({ originalIndex: 99999999999 })
-      ;(this.routesById as any)[notFoundRoute.id] = notFoundRoute
+      notFoundRoute.init({ originalIndex: 99999999999 });
+      (this.routesById as any)[notFoundRoute.id] = notFoundRoute
+
+      console.log(`buildRouteTree: notFoundRoute set at routesById[${notFoundRoute.id}]`, notFoundRoute)
     }
 
     const recurseRoutes = (childRoutes: AnyRoute[]) => {
